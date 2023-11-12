@@ -18,9 +18,20 @@ export default function Home() {
       isComplete: false,
     },
   ])
+
+  function addTask(taskTitle: string) {
+    setTasks([
+      ...tasks,
+      {
+        id: crypto.randomUUID(),
+        title: taskTitle,
+        isComplete: false,
+      },
+    ])
+  }
   return (
     <main className="flex min-w-full flex-col items-center justify-between">
-      <Header />
+      <Header onAddTask={addTask} />
       <Tasks tasks={tasks} />
     </main>
   )
