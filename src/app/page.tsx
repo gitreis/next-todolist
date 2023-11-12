@@ -2,6 +2,7 @@
 'use transpilePackages'
 import Header from '@/components/Header'
 import Tasks from '@/components/Tasks'
+import { UUID } from 'crypto'
 import { useState } from 'react'
 
 export interface myTasks {
@@ -29,10 +30,15 @@ export default function Home() {
       },
     ])
   }
+
+  function deletTask(taskId: string) {
+    const newTasks = tasks.filter((task) => task.id !== taskId)
+    setTasks(newTasks)
+  }
   return (
     <main className="flex min-w-full flex-col items-center justify-between">
       <Header onAddTask={addTask} />
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} onDelete={deletTask} />
     </main>
   )
 }

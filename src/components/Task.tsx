@@ -4,16 +4,20 @@ import { myTasks } from '@/app/page'
 
 interface Props {
   tasks: myTasks
+  onDelete: (taskId: string) => void
 }
 
-const Task = ({ tasks }: Props) => {
+const Task = ({ tasks, onDelete }: Props) => {
   return (
     <div className="flex bg-my-input rounded-md border-[1px] border-gray-600 p-4 mt-6 justify-between gap-2 items-center">
       <button className="bg-gray-600 p-2 bg-transparent border-my-blue border-2 rounded-full mr-2">
         <div></div>
       </button>
       <p className="mr-4">{tasks.title}</p>
-      <button className="bg-transparent p-2 rounded-md">
+      <button
+        className="bg-transparent p-2 rounded-md"
+        onClick={() => onDelete(tasks.id)}
+      >
         <Trash2 size={20} />
       </button>
     </div>
