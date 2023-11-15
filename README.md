@@ -2,7 +2,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+IMPORTANT: Install Nodehjs https://nodejs.org/en/download  
+After clone the repo install the dependencies. 
+Hit on terminal npm install.
+
+Run the development server:
 
 ```bash
 npm run dev
