@@ -4,10 +4,11 @@ import { myTasks } from '@/app/page'
 
 interface Props {
   tasks: myTasks[]
-  onDelete: (taskId: string) => void
+  onDelete: (taskId: number) => void
+  onComplete: (taskId: number) => void
 }
 
-const Tasks = ({ tasks, onDelete }: Props) => {
+const Tasks = ({ tasks, onDelete, onComplete }: Props) => {
   const quantity = tasks.length
   const completed = tasks.filter((tasks) => tasks.isComplete).length
   return (
@@ -28,7 +29,12 @@ const Tasks = ({ tasks, onDelete }: Props) => {
       </header>
       <div className="flex flex-col">
         {tasks.map((task) => (
-          <Task key={task.id} tasks={task} onDelete={onDelete} />
+          <Task
+            key={task.id}
+            tasks={task}
+            onDelete={onDelete}
+            onComplete={onComplete}
+          />
         ))}
       </div>
     </section>
